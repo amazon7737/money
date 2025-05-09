@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>식비 계산기</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>식비 계산기</h1>
+
+      <section class="meal-section">
+        <h2>아침</h2>
+        <!-- <form id="breakfast-form"> -->
+        <div class="item-input">
+          <input type="text" class="morning-item" placeholder="제품명" required />
+          <input type="number" class="morning-price" placeholder="가격" required />
+          <button type="button" onclick="getItemName('morning')">추가</button>
+        </div>
+        <div class="items-list"></div>
+        <!-- </form> -->
+      </section>
+
+      <section class="meal-section">
+        <h2>점심</h2>
+        <!-- <form id="lunch-form"> -->
+        <div class="item-input">
+          <input type="text" class="lunch-item" placeholder="제품명" required />
+          <input type="number" class="lunch-price" placeholder="가격" required />
+          <button type="submit" onclick="getItemName('lunch')">추가</button>
+        </div>
+        <div class="items-list"></div>
+        <!-- </form> -->
+      </section>
+
+      <section class="meal-section">
+        <h2>저녁</h2>
+        <!-- <form id="dinner-form"> -->
+        <div class="item-input">
+          <input type="text" class="dinner-item" placeholder="제품명" required />
+          <input type="number" class="dinner-price" placeholder="가격" required />
+          <button type="submit" onclick="getItemName('dinner')">추가</button>
+        </div>
+        <div class="items-list"></div>
+        <!-- </form> -->
+      </section>
+
+      <section class="total-section">
+        <h2>총계</h2>
+        <div class="total-amount">
+          <p>아침: <span id="breakfast-total">0</span>원</p>
+          <p>점심: <span id="lunch-total">0</span>원</p>
+          <p>저녁: <span id="dinner-total">0</span>원</p>
+          <p>총 합계: <span id="grand-total">0</span>원</p>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript">
+      let morning = [];
+      let lunch = [];
+      let dinner = [];
+
+      let morningItemName = document.querySelector(".morning-item").value;
+      let lunchItemName = document.querySelector(".lunch-item").value;
+      let dinnerItemName = document.querySelector(".dinner-item").value;
+
+      function getItemName(key) {
+        switchTime(key, document.querySelector(".morning-item").value);
+      }
+
+      function switchTime(key, value) {
+        switch (key) {
+          case "morning":
+            console.log(key, value);
+            morningItemName = value;
+            break;
+          case "lunch":
+            console.log(key, value);
+            lunchItemName = value;
+            break;
+          case "dinner":
+            console.log(key, value);
+            dinnerItemName = value;
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
