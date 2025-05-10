@@ -61,6 +61,19 @@
           <p>총 합계: <span id="grand-total">0</span>원</p>
         </div>
       </section>
+
+      <table border="1">
+        <thead>
+            <tr>
+                <th>제품명</th>
+                <th>가격</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody id="product">
+           
+        </tbody>
+    </table>
     </div>
 
     <script type="text/javascript">
@@ -69,29 +82,40 @@
       let dinner = [];
 
       let morningItemName = document.querySelector(".morning-item").value;
+      let morningItemPrice = document.querySelector(".morning-price").value;
       let lunchItemName = document.querySelector(".lunch-item").value;
+      let lunchItemPrice = document.querySelector(".lunch-price").value;
       let dinnerItemName = document.querySelector(".dinner-item").value;
+      let dinnerItemPrice = document.querySelector(".dinner-price").value;
+      
 
       function getItemName(key) {
-        switchTime(key, document.querySelector(".morning-item").value);
+        switchTime(key);
       }
 
-      function switchTime(key, value) {
+      function switchTime(key) {
         switch (key) {
           case "morning":
-            console.log(key, value);
-            morningItemName = value;
+            morning.push({name: document.querySelector(".morning-item").value, price: document.querySelector(".morning-price").value});
+            console.log(morning);
+            // morningItemName = value;
             break;
           case "lunch":
-            console.log(key, value);
-            lunchItemName = value;
+            lunch.push({name: document.querySelector(".lunch-item").value, price: document.querySelector(".lunch-price").value});
+            console.log(lunch);
+
+            // lunchItemName = value;
             break;
           case "dinner":
-            console.log(key, value);
-            dinnerItemName = value;
+            dinner.push({name: document.querySelector(".dinner-item").value, price: document.querySelector(".dinner-price").value});
+            console.log(dinner);
+            
+            // dinnerItemName = value;
             break;
         }
       }
+
+      
     </script>
   </body>
 </html>
